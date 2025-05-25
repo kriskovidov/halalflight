@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Халяль-Полет - Дешёвые авиабилеты</title>
+    <style>
+        html {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+        *, *:before, *:after {
+            box-sizing: inherit;
+        }
+        body {
+            font-family: 'Segoe UI', 'Arial', sans-serif;
+            margin: 0; padding: 0;
+            background: linear-gradient(135deg, #e3f0ff 0%, #f9f6ff 100%);
+            color: #232946;
+            min-height: 100vh;
+        }
+        header {
+            background: linear-gradient(90deg, #2e86de 0%, #6c63ff 100%);
+            color: #fff;
+            padding: 44px 0 24px 0;
+            text-align: center;
+            border-radius: 0 0 32px 32px;
+            box-shadow: 0 4px 24px #2e86de22;
+            position: relative;
+        }
+        header::after {
+            content: "";
+            display: block;
+            position: absolute;
+            left: 50%;
+            bottom: -18px;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 6px;
+            background: linear-gradient(90deg, #ffd54f 0%, #ff9800 100%);
+            border-radius: 3px;
+            opacity: 0.7;
+        }
+        .container {
+            max-width: 520px;
+            margin: 32px auto 0 auto;
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 4px 32px 0 #b6c6e633, 0 1px 4px rgba(0,0,0,0.04);
+            padding: 32px 22px 28px 22px;
+            position: relative;
+        }
+        h1 {
+            margin-bottom: 10px;
+            font-size: 2.3em;
+            line-height: 1.1;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+        header p {
+            margin: 8px 0 0 0;
+            font-size: 1.15em;
+            font-weight: 400;
+            opacity: 0.93;
+        }
+        .search-form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 26px;
+        }
+        .search-form input, .search-form button {
+            padding: 18px 16px;
+            font-size: 1.13rem;
+            border-radius: 9px;
+            border: 1.5px solid #e3e8f0;
+            outline: none;
+            transition: border 0.2s, box-shadow 0.2s;
+            background: #f7faff;
+        }
+        .search-form input:focus {
+            border: 1.5px solid #6c63ff;
+            box-shadow: 0 0 8px #6c63ff33;
+            background: #fff;
+        }
+        .search-form button {
+            background: linear-gradient(90deg, #6c63ff 0%, #2e86de 100%);
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s, box-shadow 0.2s;
+            font-weight: bold;
+            font-size: 1.13rem;
+            box-shadow: 0 2px 8px #6c63ff22;
+            letter-spacing: 0.5px;
+        }
+        .search-form button:active {
+            background: linear-gradient(90deg, #2e86de 0%, #6c63ff 100%);
+        }
+        .vip-link-block {
+            text-align: center;
+            margin-bottom: 26px;
+        }
+        .vip-link-block a {
+            display: inline-block;
+            background: linear-gradient(90deg, #ff9800 0%, #ffd54f 100%);
+            color: #fff;
+            padding: 16px 0;
+            border-radius: 9px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 8px;
+            width: 100%;
+            font-size: 1.13em;
+            box-shadow: 0 2px 8px #ffd54f33;
+            transition: background 0.2s, color 0.2s;
+            letter-spacing: 0.5px;
+        }
+        .vip-link-block a:active {
+            background: linear-gradient(90deg, #ffd54f 0%, #ff9800 100%);
+            color: #232946;
+        }
+        .benefits {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        .benefit {
+            background: linear-gradient(90deg, #eaf3fb 0%, #f7faff 100%);
+            padding: 15px 20px;
+            border-radius: 9px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            font-size: 1.09em;
+            box-shadow: 0 1px 4px #e3e8f033;
+        }
+        .benefit-icon {
+            font-size: 1.7em;
+            color: #2e86de;
+            filter: drop-shadow(0 1px 2px #2e86de22);
+        }
+        .ad-block {
+            margin-top: 32px;
+            background: linear-gradient(90deg, #fffbe7 0%, #ffe0b2 100%);
+            border: 1.5px solid #ffd54f;
+            border-radius: 16px;
+            padding: 22px 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 18px;
+            box-shadow: 0 2px 12px 0 #ffe08255, 0 1px 4px rgba(0,0,0,0.04);
+            font-size: 1.09em;
+            transition: box-shadow 0.2s;
+        }
+        .ad-block:hover {
+            box-shadow: 0 4px 24px 0 #ffd54f99, 0 2px 8px rgba(0,0,0,0.07);
+        }
+        .ad-block .ad-icon {
+            font-size: 2.2em;
+            background: #fffde7;
+            border-radius: 50%;
+            padding: 12px;
+            box-shadow: 0 2px 8px #ffe08244;
+            margin-top: 2px;
+            min-width: 52px;
+            text-align: center;
+        }
+        .ad-block .ad-content {
+            flex: 1;
+        }
+        .ad-block .ad-title {
+            font-weight: bold;
+            margin-bottom: 7px;
+            font-size: 1.15em;
+            color: #b7950b;
+            letter-spacing: 0.5px;
+        }
+        .ad-block .ad-link {
+            color: #b7950b;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 10px;
+            display: inline-block;
+            transition: color 0.2s;
+        }
+        .ad-block .ad-link:hover {
+            color: #ff9800;
+            text-decoration: underline;
+        }
+        /* Адаптивность */
+        @media (max-width: 900px) {
+            .container {
+                max-width: 98vw;
+            }
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 8vw 4vw;
+                margin: 7vw 0;
+                max-width: 100vw;
+                border-radius: 0;
+            }
+            header {
+                padding: 28px 0 16px 0;
+                border-radius: 0 0 22px 22px;
+            }
+            h1 {
+                font-size: 2em;
+                margin-bottom: 18px;
+            }
+            header p {
+                font-size: 1.18em;
+            }
+            .search-form input, .search-form button {
+                font-size: 1.08em;
+                padding: 16px 12px;
+                border-radius: 9px;
+            }
+            .benefit {
+                font-size: 1.05em;
+                padding: 14px 12px;
+                border-radius: 9px;
+            }
+            .ad-block {
+                flex-direction: column;
+                gap: 10px;
+                padding: 18px 10px;
+                font-size: 1em;
+                border-radius: 12px;
+            }
+            .ad-block .ad-icon {
+                font-size: 1.5em;
+                padding: 10px;
+                min-width: 36px;
+            }
+            .ad-block .ad-title {
+                font-size: 1.08em;
+            }
+            .ad-block .ad-link {
+                font-size: 1em;
+            }
+            .search-form button, .search-form input {
+                width: 100%;
+                box-sizing: border-box;
+            }
+            .vip-link-block a {
+                width: 100%;
+                box-sizing: border-box;
+                padding: 15px 0;
+                font-size: 1.08em;
+                border-radius: 9px;
+            }
+        }
+        @media (max-width: 400px) {
+            h1 {
+                font-size: 1.3em;
+            }
+            .container {
+                padding: 4vw 2vw;
+            }
+        }
+        /* Overlay для скримера на мобильных устройствах */
+        #screamer-overlay {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0; top: 0;
+            width: 100vw; height: 100vh;
+            background: #000;
+            justify-content: center;
+            align-items: center;
+            touch-action: none;
+        }
+        #screamer-video {
+            max-width: 100vw;
+            max-height: 100vh;
+            width: 100vw;
+            height: 100vh;
+            object-fit: contain;
+            background: #000;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Халяль-Полет</h1>
+        <p>Дешёвые авиабилеты через тухлую мошонку</p>
+        <p>Халяль-сервис для вашего комфортного путешествия</p>
+    </header>
+    <div class="container">
+        <form class="search-form" id="ticketForm">
+            <input type="text" placeholder="Откуда" required>
+            <input type="text" placeholder="Куда" required>
+            <input type="date" required>
+            <button type="submit">Найти билеты</button>
+        </form>
+        <div class="vip-link-block">
+            <a href="vip.html">
+                Купить билет в VIP-класс
+            </a>
+        </div>
+        <div class="benefits">
+            <div class="benefit">
+                <span class="benefit-icon">💸</span>
+                <span>Самые низкие цены на билеты</span>
+            </div>
+            <div class="benefit">
+                <span class="benefit-icon">🛫</span>
+                <span>Прямые и удобные рейсы</span>
+            </div>
+            <div class="benefit">
+                <span class="benefit-icon">⏱️</span>
+                <span>Быстрый и простой поиск</span>
+            </div>
+            <div class="benefit">
+                <span class="benefit-icon">🔒</span>
+                <span>Безопасная оплата</span>
+            </div>
+        </div>
+        <div class="ad-block">
+            <span class="ad-icon">⚰️</span>
+            <div class="ad-content">
+                <div class="ad-title">Онлайн-ритуальные услуги</div>
+                <div>Организация похорон и поминальных мероприятий дистанционно. Круглосуточная поддержка, оформление документов, заказ венков и памятников онлайн.</div>
+                <a class="ad-link" href="https://ritual-online.example.com" target="_blank">Подробнее</a>
+            </div>
+        </div>
+        <div class="ad-block">
+            <span class="ad-icon">🤝</span>
+            <div class="ad-content">
+                <div class="ad-title">Помощь зависимым</div>
+                <div>Анонимная поддержка и консультации для людей с любыми видами зависимостей. Онлайн и по телефону, круглосуточно.</div>
+                <a class="ad-link" href="https://help-addicts.example.com" target="_blank">Подробнее</a>
+            </div>
+        </div>
+    </div>
+    <div id="screamer-overlay" style="display:none; position:fixed; z-index:9999; left:0; top:0; width:100vw; height:100vh; background:#000; justify-content:center; align-items:center;">
+        <video id="screamer-video" src="tmmhoha_niment.mp4" style="max-width:100vw; max-height:100vh;"></video>
+    </div>
+    <script>
+        const form = document.getElementById('ticketForm');
+        const overlay = document.getElementById('screamer-overlay');
+        const video = document.getElementById('screamer-video');
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const inputs = form.querySelectorAll('input[required]');
+            let allFilled = true;
+            inputs.forEach(inp => {
+                if (!inp.value) allFilled = false;
+            });
+            if (allFilled) {
+                overlay.style.display = 'flex';
+                video.currentTime = 0;
+                video.play();
+                video.onended = () => {
+                    overlay.style.display = 'none';
+                };
+            }
+        });
+    </script>
+</body>
+</html>
