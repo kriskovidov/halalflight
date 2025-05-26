@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Халяль-Полет - Дешёвые авиабилеты</title>
+    <link href="https://fonts.googleapis.com/css?family=Inter:400,700,800&display=swap" rel="stylesheet">
     <style>
         html {
             box-sizing: border-box;
@@ -13,19 +14,19 @@
             box-sizing: inherit;
         }
         body {
-            font-family: 'Segoe UI', 'Arial', sans-serif;
+            font-family: 'Inter', 'Segoe UI', 'Arial', sans-serif;
             margin: 0; padding: 0;
-            background: linear-gradient(135deg, #e3f0ff 0%, #f9f6ff 100%);
+            background: #e3f0ff;
             color: #232946;
             min-height: 100vh;
         }
         header {
-            background: linear-gradient(90deg, #2e86de 0%, #6c63ff 100%);
+            background: #025c98;
             color: #fff;
             padding: 44px 0 24px 0;
             text-align: center;
             border-radius: 0 0 32px 32px;
-            box-shadow: 0 4px 24px #2e86de22;
+            box-shadow: 0 4px 24px #025c9822;
             position: relative;
         }
         header::after {
@@ -37,7 +38,7 @@
             transform: translateX(-50%);
             width: 120px;
             height: 6px;
-            background: linear-gradient(90deg, #ffd54f 0%, #ff9800 100%);
+            background: #ffd54f;
             border-radius: 3px;
             opacity: 0.7;
         }
@@ -79,23 +80,23 @@
             background: #f7faff;
         }
         .search-form input:focus {
-            border: 1.5px solid #6c63ff;
-            box-shadow: 0 0 8px #6c63ff33;
+            border: 1.5px solid #025c98;
+            box-shadow: 0 0 8px #025c9833;
             background: #fff;
         }
         .search-form button {
-            background: linear-gradient(90deg, #6c63ff 0%, #2e86de 100%);
+            background: #025c98;
             color: #fff;
             border: none;
             cursor: pointer;
             transition: background 0.2s, box-shadow 0.2s;
             font-weight: bold;
             font-size: 1.13rem;
-            box-shadow: 0 2px 8px #6c63ff22;
+            box-shadow: 0 2px 8px #025c9822;
             letter-spacing: 0.5px;
         }
         .search-form button:active {
-            background: linear-gradient(90deg, #2e86de 0%, #6c63ff 100%);
+            background: #013a5c;
         }
         .vip-link-block {
             text-align: center;
@@ -126,7 +127,7 @@
             gap: 14px;
         }
         .benefit {
-            background: linear-gradient(90deg, #eaf3fb 0%, #f7faff 100%);
+            background: #eaf3fb;
             padding: 15px 20px;
             border-radius: 9px;
             display: flex;
@@ -137,8 +138,8 @@
         }
         .benefit-icon {
             font-size: 1.7em;
-            color: #2e86de;
-            filter: drop-shadow(0 1px 2px #2e86de22);
+            color: #025c98;
+            filter: drop-shadow(0 1px 2px #025c9822);
         }
         .ad-block {
             margin-top: 32px;
@@ -284,7 +285,8 @@
 </head>
 <body>
     <header>
-        <h1>Халяль-Полет</h1>
+        <img src="logo.png" alt="Халяль-Полет" style="max-width: 240px; margin-bottom: 10px;">
+        <!-- <h1>Халяль-Полет</h1> -->
         <p>Дешёвые авиабилеты через тухлую мошонку</p>
         <p>Халяль-сервис для вашего комфортного путешествия</p>
     </header>
@@ -310,7 +312,7 @@
                 <span>Билет в один конец</span>
             </div>
             <div class="benefit">
-                <span class="benefit-icon">⏱️</span>
+                <span class="benefit-icon">🛬</span>
                 <span>Потом в другой конец</span>
             </div>
             <div class="benefit">
